@@ -1,0 +1,83 @@
+{
+  "name": "loopback-component-migrate-mssql",
+  "version": "0.0.0-semantically-released.0",
+  "description": "Migration framework for Loopback.",
+  "author": {
+    "name": "Dascal Mihai @mdasmendel"
+  },
+  "contributors": [
+    "Tom Kirkpatrick @mrfelton"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mdasmendel/loopback-component-migrate-mmsql.git"
+  },
+  "keywords": [
+    "loopback",
+    "strongloop",
+    "mssql",
+    "migrate"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdasmendel/loopback-component-migrate-mmsql/issues"
+  },
+  "homepage": "https://github.com/mdasmendel/loopback-component-migrate-mmsql",
+  "files": [
+    "migration-skeleton.js",
+    "lib",
+    "bin",
+    "test"
+  ],
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "main": "./lib/index.js",
+  "bin": {
+    "loopback-component-migrate-mssql": "./bin/cli"
+  },
+  "scripts": {
+    "lint": "jscs lib && jshint lib",
+    "test": "mocha -R spec --timeout 10000 test/test.js",
+    "test:watch": "npm run test -- -w",
+    "pretest": "npm run lint",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "outdated": "npm outdated --depth=0",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "dependencies": {
+    "cli-prompt": "^0.6.0",
+    "commander": "^2.8.1",
+    "debug": "^2.6.8",
+    "mkdirp": "^0.5.1"
+  },
+  "devDependencies": {
+    "bluebird": "^3.5.0",
+    "chai": "latest",
+    "condition-circle": "^1.5.0",
+    "ghooks": "^2.0.0",
+    "jscs": "latest",
+    "jshint": "latest",
+    "lodash": "latest",
+    "loopback": "^3.8.0",
+    "loopback-boot": "^2.24.1",
+    "loopback-component-explorer": "^4.2.0",
+    "loopback-testing": "^1.4.0",
+    "mocha": "latest",
+    "nyc": "latest",
+    "semantic-release": "^6.3.6",
+    "sinon": "latest",
+    "sinon-chai": "latest",
+    "validate-commit-msg": "^2.12.2"
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "validate-commit-msg",
+      "pre-commit": "npm run lint"
+    }
+  },
+  "release": {
+    "verifyConditions": "condition-circle"
+  }
+}
